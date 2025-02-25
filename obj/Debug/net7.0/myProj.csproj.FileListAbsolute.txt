@@ -25,9 +25,10 @@ C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\staticwebassets.pack.jso
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\staticwebassets.build.json
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\staticwebassets.development.json
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\scopedcss\bundle\myProj.styles.css
-C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.csproj.CopyComplete
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.dll
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\refint\myProj.dll
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.pdb
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.genruntimeconfig.cache
 C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\ref\myProj.dll
+C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.sourcelink.json
+C:\ציפי לימודים\Core\myProj\obj\Debug\net7.0\myProj.csproj.Up2Date

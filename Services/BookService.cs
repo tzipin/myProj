@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+using myProj.interfaces;
 using myProj.Models;
-using myProj.Services;
+
 
 namespace myProj.Services;
 
-public static class BookService
+public class BookService : IBookService
 {
-    private static List<Book> books;
+    private List<Book> books;
 
-    static BookService()
+    public BookService()
     {
         books = new List<Book>
         {
@@ -17,18 +17,18 @@ public static class BookService
         };
     }
 
-    public static List<Book> GetBooks()
+    public List<Book> GetBooks()
     {
         return books;
     }
 
-    public static Book GetBook(int id)
+    public Book GetBook(int id)
     {
         var book = books.FirstOrDefault(b => b.Id == id);
         return book;
     }
 
-    public static int Insert(Book newBook)
+    public int Insert(Book newBook)
     {
         if(IsBookEmpty(newBook))
             return -1;
@@ -38,7 +38,7 @@ public static class BookService
         return newBook.Id;
     }
 
-    public static bool Update(int id, Book newBook)
+    public bool Update(int id, Book newBook)
     {
         if(IsBookEmpty(newBook) || newBook.Id != id)
             return false;
@@ -52,7 +52,7 @@ public static class BookService
         return true;
     }
 
-    public static bool Delete(int id)
+    public bool Delete(int id)
     {
         var book = books.FirstOrDefault(b => b.Id == id);
         if(book == null)
@@ -63,8 +63,16 @@ public static class BookService
         return true;
     }
 
-    public static bool IsBookEmpty(Book book)
+    public bool IsBookEmpty(Book book)
     {
         return book == null || string.IsNullOrWhiteSpace (book.BookName);
+    }
+}
+
+public static class BookUtilities
+{
+    public static void AddBookConst(this IServiceCollection services)
+    {
+        services.AddSingleton<IBookService, BookService>();
     }
 }
