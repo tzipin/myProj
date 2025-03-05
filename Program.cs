@@ -20,6 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseErrorMiddleware();
+
 app.UseLogMiddleware();
 
 app.UseHttpsRedirection();

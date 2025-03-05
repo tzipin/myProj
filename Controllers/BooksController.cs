@@ -56,7 +56,6 @@ public class BookCntroller : ControllerBase
     {
         if(!bookService.Delete(id))
             return NotFound();
-
         return Ok();
     }
 }

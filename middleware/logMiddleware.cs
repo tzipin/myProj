@@ -13,11 +13,11 @@ public class LogMiddleware
 
     public async Task Invoke(HttpContext c)
     {
-        logger.LogDebug($"{c.Request.Path}.{c.Request.Method} start");
+       Console.WriteLine($"{c.Request.Path}.{c.Request.Method} start");
         var sw = new Stopwatch();
         sw.Start();
         await next(c);
-        System.Console.WriteLine($"{c.Request.Path}.{c.Request.Method} end after {sw}ms");
+        Console.WriteLine($"{c.Request.Path}.{c.Request.Method} end after {sw}ms");
     }
 }
 
