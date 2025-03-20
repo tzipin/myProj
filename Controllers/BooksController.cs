@@ -7,12 +7,12 @@ namespace myProj.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class BookCntroller : ControllerBase
+public class BookController : ControllerBase
 {
 
     private IBookService bookService;
 
-    public BookCntroller(IBookService bookService)
+    public BookController(IBookService bookService)
     {
         this.bookService = bookService;
     }
@@ -20,6 +20,7 @@ public class BookCntroller : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Book>> Get()
     {
+        System.Console.WriteLine(bookService.GetBooks());
         return bookService.GetBooks();
     }
 
@@ -36,9 +37,9 @@ public class BookCntroller : ControllerBase
     public ActionResult Post(Book newBook)
     {
         var newId = bookService.Insert(newBook);
-        if(newId == -1)
+        if(newId == -1){
             return BadRequest();
-
+        }
         return CreatedAtAction(nameof(Post), new{Id = newId});
     }
 

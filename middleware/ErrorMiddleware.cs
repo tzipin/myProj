@@ -21,14 +21,16 @@ public class ErrorMiddleware
         catch (ApplicationException ex)
         {
             c.Response.StatusCode = 400;
-            await SendEmail("tzipi05567@gmail.com", "ERROR", "server error");
-            await c.Response.WriteAsync(ex.Message);
+            System.Console.WriteLine("aplication error");
+            // await SendEmail("tzipi05567@gmail.com", "ERROR", "aplication error");
+            // await c.Response.WriteAsync(ex.Message);
         }
         catch (Exception ex)
         {
             c.Response.StatusCode = 500;
-            await SendEmail("tzipi05567@gmail.com", "ERROR", "server error");
-            await c.Response.WriteAsync("פנה לתמיכה הטכנית");
+            System.Console.WriteLine("server error");
+            // await SendEmail("tzipi05567@gmail.com", "ERROR", "server error");
+            // await c.Response.WriteAsync("פנה לתמיכה הטכנית");
         }
     }
 

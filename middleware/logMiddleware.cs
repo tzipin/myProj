@@ -17,7 +17,7 @@ public class LogMiddleware
         var sw = new Stopwatch();
         sw.Start();
         await next(c);
-        Console.WriteLine($"{c.Request.Path}.{c.Request.Method} end after {sw}ms");
+        Console.WriteLine($"{c.Request.Path}.{c.Request.Method} end after {sw.ElapsedMilliseconds}ms");
     }
 }
 

@@ -1,3 +1,4 @@
+using System.Text.Json;
 using myProj.interfaces;
 using myProj.Models;
 
@@ -6,35 +7,36 @@ namespace myProj.Services;
 
 public class BookService : IBookService
 {
-    private List<Book> books;
-
-    public BookService()
+    List<Book>? books { get; }
+    private static string fileName = "Book.json";
+    private static string filePath;
+    public BookService(IHostEnvironment env)
     {
-        books = new List<Book>
+        filePath = Path.Combine(env.ContentRootPath, "Data", fileName);
+
+        using (var jsonFile = File.OpenText(filePath))
         {
-            new Book { Id = 1, BookName = "איסתרק" },
-            new Book { Id = 2, BookName = "לחיות וחצי", OnlyAdults = true },
-        };
+            books = JsonSerializer.Deserialize<List<Book>>(jsonFile.ReadToEnd(),
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
     }
-
-    public List<Book> GetBooks()
+    private void saveToFile()
     {
-        return books;
+        File.WriteAllText(filePath, JsonSerializer.Serialize(books));
     }
 
-    public Book GetBook(int id)
-    {
-        var book = books.FirstOrDefault(b => b.Id == id);
-        return book;
-    }
-
+    public List<Book> GetBooks() => books;
+    public Book GetBook(int id) => books.FirstOrDefault(b => b.Id == id);
     public int Insert(Book newBook)
     {
         if(IsBookEmpty(newBook))
-            return -1;
-        int maxId = books.Max(b => b.Id);
-        newBook.Id = maxId + 1;
+            return -1;        
+        newBook.Id = books.Count()+1;
         books.Add(newBook);
+        saveToFile();
         return newBook.Id;
     }
 
@@ -42,30 +44,27 @@ public class BookService : IBookService
     {
         if(IsBookEmpty(newBook) || newBook.Id != id)
             return false;
-
-        var book = books.FirstOrDefault(b => b.Id == id);
-        if(book == null)
+        var index = books.FindIndex(b => b.Id == id);
+        if(index == -1)
             return false;
-
-        book.BookName = newBook.BookName;
-        book.OnlyAdults = newBook.OnlyAdults;
+        books[index] = newBook;
+        saveToFile();
         return true;
     }
 
     public bool Delete(int id)
     {
-        var book = books.FirstOrDefault(b => b.Id == id);
+        var book = GetBook(id);
         if(book == null)
             return false;
-
-        int index = books.IndexOf(book);
-        books.RemoveAt(index);
+        books.Remove(book);
+        saveToFile();
         return true;
     }
 
     public bool IsBookEmpty(Book book)
     {
-        return book == null || string.IsNullOrWhiteSpace (book.BookName);
+        return book == null;
     }
 }
 

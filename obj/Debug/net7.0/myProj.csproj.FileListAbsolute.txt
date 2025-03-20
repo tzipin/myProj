@@ -65,3 +65,5 @@ Z:\B\נויגרשל ציפורה\Core\myProj-main\obj\Debug\net7.0\scopedcss\bun
 Z:\B\נויגרשל ציפורה\Core\myProj-main\obj\Debug\net7.0\myProj.csproj.CopyComplete
 Z:\B\נויגרשל ציפורה\Core\myProj-main\obj\Debug\net7.0\myProj.genruntimeconfig.cache
 Z:\B\נויגרשל ציפורה\Core\myProj-main\obj\Debug\net7.0\ref\myProj.dll
+C:\ציפי לימודים\Core\myProj\bin\Debug\net7.0\Data\Book.json
+C:\ציפי לימודים\Core\myProj\bin\Debug\net7.0\myProj.staticwebassets.runtime.json
