@@ -40,7 +40,7 @@ public class BookService : IBookService
         return newBook.Id;
     }
 
-    public bool Update(int id, Book newBook)
+    public bool Update(Book newBook, int id)
     {
         if(IsBookEmpty(newBook) || newBook.Id != id)
             return false;

@@ -10,7 +10,7 @@ public interface IBookService
 
     int Insert(Book newBook);
 
-    bool Update(int id, Book newBook);
+    bool Update(Book newBook, int id);
 
     bool Delete(int id);
 }
