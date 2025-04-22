@@ -1,9 +1,9 @@
 namespace myProj.Models;
 
-public class Book
+public class Book : Genery
 {
-    public int Id { get; set; }
     public string? BookName { get; set; }
     public bool IsOnlyAdults { get; set; }
+    public int AuthorId { get; set; }
     
 }

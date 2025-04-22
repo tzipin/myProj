@@ -10,9 +10,9 @@ namespace myProj.Controllers;
 public class BookController : ControllerBase
 {
 
-    private IBookService bookService;
+    private IGeneryService<Book> bookService;
 
-    public BookController(IBookService bookService)
+    public BookController(IGeneryService<Book> bookService)
     {
         this.bookService = bookService;
     }
@@ -20,23 +20,22 @@ public class BookController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Book>> Get()
     {
-        System.Console.WriteLine(bookService.GetBooks());
-        return bookService.GetBooks();
+        return bookService.Get();
     }
 
     [HttpGet("{id}")]
     public ActionResult<Book> Get(int id)
     {
-        var book = bookService.GetBook(id);
+        var book = bookService.GetOne(id);
         if(book == null)
             return NotFound();
         return book;
     }
 
     [HttpPost]
-    public ActionResult Post(Book newBook)
+    public ActionResult Post(Book newItem)
     {
-        var newId = bookService.Insert(newBook);
+        var newId = bookService.Insert(newItem);
         if(newId == -1){
             return BadRequest();
         }
@@ -44,9 +43,9 @@ public class BookController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public ActionResult Put(int id, Book newBook)
+    public ActionResult Put(int id, Book newItem)
     {
-        if(!bookService.Update(id, newBook))
+        if(!bookService.Update(newItem, id))
             return BadRequest();
         
         return NoContent();

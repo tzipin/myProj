@@ -34,4 +34,4 @@ C:\ציפי לימודים\Core\myProj\obj\Debug\net8.0\refint\myProj.dll
 C:\ציפי לימודים\Core\myProj\obj\Debug\net8.0\myProj.pdb
 C:\ציפי לימודים\Core\myProj\obj\Debug\net8.0\myProj.genruntimeconfig.cache
 C:\ציפי לימודים\Core\myProj\obj\Debug\net8.0\ref\myProj.dll
-C:\ציפי לימודים\Core\myProj\bin\Debug\net8.0\Data\Users.json
+C:\ציפי לימודים\Core\myProj\bin\Debug\net8.0\Data\User.json

@@ -1,8 +1,7 @@
 namespace myProj.Models;
 
-public class User
+public class Author : Genery
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
     public string Address { get; set; }

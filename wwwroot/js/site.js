@@ -1,5 +1,5 @@
 const uri = '/book';
-let books = [];
+let list = [];
 
 function getItems() {
     fetch(uri)
@@ -15,7 +15,7 @@ function addItem() {
 
     const item = {
         id: 0,
-        bookName: addNameTextbox.value.trim(),
+        BookName: addNameTextbox.value.trim(),
         isOnlyAdults: false
     };
 
@@ -44,9 +44,9 @@ function deleteItem(id) {
 }
 
 function displayEditForm(id) {
-    const item = books.find(item => item.id === id);
+    const item = list.find(item => item.id === id);
 
-    document.getElementById('edit-name').value = item.bookName;
+    document.getElementById('edit-name').value = item.BookName;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-isOnlyAdults').checked = item.isOnlyAdults;
     document.getElementById('editForm').style.display = 'block';
@@ -57,7 +57,7 @@ function updateItem() {
     const item = {
         id: parseInt(itemId, 10),
         isOnlyAdults: document.getElementById('edit-isOnlyAdults').checked,
-        bookName: document.getElementById('edit-name').value.trim()
+        BookName: document.getElementById('edit-name').value.trim()
     };
 
     fetch(`${uri}/${itemId}`, {
@@ -87,7 +87,7 @@ function _displayCount(itemCount) {
 }
 
 function _displayItems(data) {
-    const tBody = document.getElementById('books');
+    const tBody = document.getElementById('list');
     tBody.innerHTML = '';
 
     _displayCount(data.length);
@@ -114,7 +114,7 @@ function _displayItems(data) {
         td1.appendChild(isOnlyAdultsCheckbox);
 
         let td2 = tr.insertCell(1);        
-        let textNode = document.createTextNode(item.bookName);
+        let textNode = document.createTextNode(item.BookName);
         td2.appendChild(textNode);
 
         let td3 = tr.insertCell(2);
@@ -124,5 +124,5 @@ function _displayItems(data) {
         td4.appendChild(deleteButton);
     });
 
-    books = data;
+    list = data;
 }
