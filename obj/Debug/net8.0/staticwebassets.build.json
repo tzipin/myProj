@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wL6utvUs1hihiA4xlPim4JTFhspN1kgJ0BLSvujXnaw=",
+  "Hash": "ameHgkibMmqWSWTymRiRAFC0X8SJiqzsuNoeNn/+9Ms=",
   "Source": "myProj",
   "BasePath": "_content/myProj",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\login.css",
+      "SourceId": "myProj",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
+      "BasePath": "_content/myProj",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
     {
       "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\site.css",
       "SourceId": "myProj",
@@ -36,12 +55,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\index.html",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\index.html",
       "SourceId": "myProj",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "index.html",
+      "RelativePath": "html/index.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,7 +71,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
+      "OriginalItemSpec": "wwwroot\\html\\index.html"
+    },
+    {
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\login.html",
+      "SourceId": "myProj",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
+      "BasePath": "_content/myProj",
+      "RelativePath": "html/login.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\html\\login.html"
+    },
+    {
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\login.js",
+      "SourceId": "myProj",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
+      "BasePath": "_content/myProj",
+      "RelativePath": "js/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\site.js",

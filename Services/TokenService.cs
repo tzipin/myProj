@@ -1,12 +1,18 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 
 namespace myProj.Services;
 
-public static class TokenServise
+public class TokenServise
 {
+    private readonly HttpClient httpClient;
+    public TokenServise(HttpClient httpClient)
+    {
+        this.httpClient = httpClient;
+    }
     private static SymmetricSecurityKey key 
             = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(
@@ -34,5 +40,10 @@ public static class TokenServise
 
     public static string WriteToken(SecurityToken token) =>
         new JwtSecurityTokenHandler().WriteToken(token);
+
+    public void Token(string token)
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+    }
 }
  

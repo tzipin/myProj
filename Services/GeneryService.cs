@@ -42,13 +42,12 @@ public abstract class GeneryService<T> : IGeneryService<T> where T : Genery
         saveToFile();
         return true;
     }
-
     public bool IsItemEmpty(T item)
     {
         return item == null;
     }  
-    
-      
+
+
 }
 
 public static class GeneryUtilities
@@ -59,5 +58,7 @@ public static class GeneryUtilities
         services.AddSingleton<IGeneryService<Author>, AuthorService>();
         services.AddSingleton<AuthorService>();
         services.AddSingleton<BookService>();
+        services.AddSingleton<TokenServise>();
+
     }
 }

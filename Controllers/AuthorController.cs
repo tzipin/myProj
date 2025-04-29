@@ -15,17 +15,13 @@ public class AuthorController : ControllerBase
 
     private AuthorService authorService;
     private IGeneryService<Book> bookService;
-
-    public AuthorController(AuthorService authorService, IGeneryService<Book> bookService)
+    private TokenServise tokenServise;
+    public AuthorController(AuthorService authorService, IGeneryService<Book> bookService, TokenServise tokenServise)
     {
         this.authorService = authorService;
         this.bookService = bookService;
+        this.tokenServise = tokenServise;
     }
-
-    // public AuthorController(IGeneryService<Author> authorService)
-    // {
-    //     this.authorService = authorService;
-    // }
 
     [HttpGet]
     [Authorize(Policy = "Librarian")]
@@ -75,7 +71,7 @@ public class AuthorController : ControllerBase
     }
 
     [HttpPost]
-    [Route("login")]
+    [Route("/login")]
     public ActionResult<String> Login([FromBody] Author author)
     {
         int id = authorService.GetAuthorByNameAndPassword(author.Name, author.Password);
@@ -98,7 +94,9 @@ public class AuthorController : ControllerBase
             new Claim("Id", id.ToString()),
         } ;  
         var token = TokenServise.GetToken(claims);
-        HttpContext.Session.SetString("token", TokenServise.WriteToken(token));
+        String stringToken = TokenServise.WriteToken(token);
+        HttpContext.Session.SetString("token", stringToken);
+        tokenServise.Token(stringToken);
         return new OkObjectResult(TokenServise.WriteToken(token));        
     }
 

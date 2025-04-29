@@ -21,7 +21,7 @@ public class BookController : ControllerBase
     }
 
     [HttpGet]
-    // [Authorize(Policy = "Librarian")]
+    [Authorize(Policy = "Librarian")]
     // [Authorize(Policy = "Author")]
     public ActionResult<IEnumerable<Book>> Get()
     {
