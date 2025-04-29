@@ -1,5 +1,4 @@
-[{"BookName":"\u05D0\u05D9\u05E1\u05EA\u05E8\u05E7","IsOnlyAdults":true,"Id":1, "AuthorId": 1},{"BookName":"\u05DC\u05D7\u05D9\u05D5\u05EA \u05D5\u05D7\u05E6\u05D9","IsOnlyAdults":true,"Id":2, "AuthorId": 3},
-{"BookName":"\u05DE\u05D5\u05E8\u05D4 \u05D2\u0027\u05D9\u05E0\u05D2\u0027\u05D9\u05EA","IsOnlyAdults":false,"Id":3, "AuthorId": 2}
-,{"BookName":"לב של קרח","IsOnlyAdults":true,"Id":4, "AuthorId": 1}
-,{"BookName":"הנורמלי האחרון","IsOnlyAdults":true,"Id":5, "AuthorId": 3}
-]
+[{"BookName":"\u05D0\u05D9\u05E1\u05EA\u05E8\u05E7","IsOnlyAdults":true,"AuthorId":1,"Id":1},
+{"BookName":"\u05DC\u05D7\u05D9\u05D5\u05EA \u05D5\u05D7\u05E6\u05D9","IsOnlyAdults":true,"AuthorId":3,"Id":2},
+{"BookName":"\u05DC\u05D1 \u05E9\u05DC \u05E7\u05E8\u05D7","IsOnlyAdults":false,"AuthorId":1,"Id":4},
+{"BookName":"\u05D4\u05E0\u05D5\u05E8\u05DE\u05DC\u05D9 \u05D4\u05D0\u05D7\u05E8\u05D5\u05DF","IsOnlyAdults":true,"AuthorId":3,"Id":5}]

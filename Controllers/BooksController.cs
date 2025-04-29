@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 using myProj.interfaces;
 using myProj.Models;
+using myProj.Services;
 
 namespace myProj.Controllers;
 
@@ -10,14 +13,16 @@ namespace myProj.Controllers;
 public class BookController : ControllerBase
 {
 
-    private IGeneryService<Book> bookService;
+    private BookService bookService;
 
-    public BookController(IGeneryService<Book> bookService)
+    public BookController(BookService bookService)
     {
         this.bookService = bookService;
     }
 
     [HttpGet]
+    // [Authorize(Policy = "Librarian")]
+    // [Authorize(Policy = "Author")]
     public ActionResult<IEnumerable<Book>> Get()
     {
         return bookService.Get();

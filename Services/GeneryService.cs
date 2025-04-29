@@ -29,8 +29,7 @@ public abstract class GeneryService<T> : IGeneryService<T> where T : Genery
     {
         File.WriteAllText(filePath, JsonSerializer.Serialize(list));
     }
-
-    public List<T> Get() => list;
+    public List<T> Get(){System.Console.WriteLine(list); return list;}
     public T GetOne(int id) => list.FirstOrDefault(b => b.Id == id);
     public abstract int Insert(T newItem);
     public abstract bool Update(T newItem, int id);
@@ -47,7 +46,9 @@ public abstract class GeneryService<T> : IGeneryService<T> where T : Genery
     public bool IsItemEmpty(T item)
     {
         return item == null;
-    }    
+    }  
+    
+      
 }
 
 public static class GeneryUtilities
@@ -56,5 +57,7 @@ public static class GeneryUtilities
     {
         services.AddSingleton<IGeneryService<Book>, BookService>();
         services.AddSingleton<IGeneryService<Author>, AuthorService>();
+        services.AddSingleton<AuthorService>();
+        services.AddSingleton<BookService>();
     }
 }
