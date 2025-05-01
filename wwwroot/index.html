@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management</title>
+    <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+    <h1>Book Management</h1>
+    <p id="counter"></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Only Adults</th>
+                <th>Book Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="list"></tbody>
+    </table>
+
+    <h2>Add a New Book</h2>
+    <form onsubmit="addItem(); return false;">
+        <label for="add-name">Book Name:</label>
+        <input type="text" id="add-name" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <div id="editForm" style="display:none;">
+        <h2>Edit Book</h2>
+        <form onsubmit="updateItem(); return false;">
+            <input type="hidden" id="edit-id">
+            <label for="edit-name">Book Name:</label>
+            <input type="text" id="edit-name" required>
+            <label for="edit-isOnlyAdults">Only Adults:</label>
+            <input type="checkbox" id="edit-isOnlyAdults">
+            <button type="submit">Update</button>
+            <button type="button" onclick="closeInput()">Cancel</button>
+        </form>
+    </div>
+
+    <script src="/js/site.js"></script>
+</body>
+</html>

@@ -1,22 +1,17 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using myProj.Models;
 
 namespace myProj.Services;
 
-public class TokenServise
+public static class TokenServise
 {
-    private readonly HttpClient httpClient;
-    public TokenServise(HttpClient httpClient)
-    {
-        this.httpClient = httpClient;
-    }
     private static SymmetricSecurityKey key 
-            = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(
-                    "SXkSqsKyNUyvGbnHs7ke2NCq8zQzNLW7mPmHbnZZ"));
+        = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(
+            "SXkSqsKyNUyvGbnHs7ke2NCq8zQzNLW7mPmHbnZZ"));
 
     private static string issuer = "https://myProg.com";
     public static SecurityToken GetToken(List<Claim> claims) =>
@@ -40,10 +35,23 @@ public class TokenServise
 
     public static string WriteToken(SecurityToken token) =>
         new JwtSecurityTokenHandler().WriteToken(token);
+    public static SecurityToken ReadToken(string token) =>
+        new JwtSecurityTokenHandler().ReadToken(token);
 
-    public void Token(string token)
+    public static int GetAuthorIdByToken(string token)
     {
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        if (string.IsNullOrEmpty(token))
+            return -1;
+        var jwtToken = ReadToken(token);
+        TokenValidationParameters tokenValidationParameters = GetTokenValidationParameters();
+        if(!tokenValidationParameters.ValidateLifetime)
+            return -1;
+        var claims = (jwtToken as JwtSecurityToken)?.Claims.ToList();
+        if(claims == null)
+            return -1;
+        var id = claims.Find(c => c.Type == "Id")?.Value;
+        int.TryParse(id, out int authorId);
+        return authorId;
     }
 }
  

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ameHgkibMmqWSWTymRiRAFC0X8SJiqzsuNoeNn/+9Ms=",
+  "Hash": "chYoskJ5SQjC/mKiiOyyX5c1ptRw4H+tqXaEhE2B2PY=",
   "Source": "myProj",
   "BasePath": "_content/myProj",
   "Mode": "Default",
@@ -55,25 +55,6 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\index.html",
-      "SourceId": "myProj",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
-      "BasePath": "_content/myProj",
-      "RelativePath": "html/index.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\html\\index.html"
-    },
-    {
       "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\login.html",
       "SourceId": "myProj",
       "SourceType": "Discovered",
@@ -91,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\login.html"
+    },
+    {
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\index.html",
+      "SourceId": "myProj",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
+      "BasePath": "_content/myProj",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
       "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\login.js",

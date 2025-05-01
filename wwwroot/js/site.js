@@ -1,12 +1,32 @@
 const uri = '/book';
 let list = [];
 
+getToken = () => {
+    return sessionStorage.getItem("token");
+};
+
 function getItems() {
-    fetch(uri)
-        .then(response => response.json())
+    const token = getToken();
+    if(!token)
+        window.location.href = "/html/login.html";
+    fetch(uri, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'token': token,
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            console.log(response);            
+            return response.json();
+        })
         .then(data => {
             console.log(data);
-            _displayItems(data)})
+            _displayItems(data);
+        })
         .catch(error => console.error('Unable to get items.', error));
 }
 
@@ -16,18 +36,24 @@ function addItem() {
     const item = {
         id: 0,
         BookName: addNameTextbox.value.trim(),
-        isOnlyAdults: false
+        isOnlyAdults: false,
     };
 
     fetch(uri, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item)
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${getToken()}`,
+        },
+        body: JSON.stringify(item),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
         })
-        .then(response => response.json())
         .then(() => {
             getItems();
             addNameTextbox.value = '';
@@ -37,8 +63,11 @@ function addItem() {
 
 function deleteItem(id) {
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
-        })
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${getToken()}`,
+        },
+    })
         .then(() => getItems())
         .catch(error => console.error('Unable to delete item.', error));
 }
@@ -57,23 +86,22 @@ function updateItem() {
     const item = {
         id: parseInt(itemId, 10),
         isOnlyAdults: document.getElementById('edit-isOnlyAdults').checked,
-        BookName: document.getElementById('edit-name').value.trim()
+        BookName: document.getElementById('edit-name').value.trim(),
     };
 
     fetch(`${uri}/${itemId}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${getToken()}`,
+        },
+        body: JSON.stringify(item),
+    })
         .then(() => getItems())
         .catch(error => console.error('Unable to update item.', error));
 
     closeInput();
-
-    return false;
 }
 
 function closeInput() {
@@ -81,7 +109,7 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'book' : 'book kinds';
+    const name = itemCount === 1 ? 'book' : 'book kinds';
 
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
@@ -97,7 +125,7 @@ function _displayItems(data) {
     data.forEach(item => {
         let isOnlyAdultsCheckbox = document.createElement('input');
         isOnlyAdultsCheckbox.type = 'checkbox';
-        isOnlyAdultsCheckbox.disabled = true;        
+        isOnlyAdultsCheckbox.disabled = true;
         isOnlyAdultsCheckbox.checked = item.isOnlyAdults;
 
         let editButton = button.cloneNode(false);
@@ -113,7 +141,7 @@ function _displayItems(data) {
         let td1 = tr.insertCell(0);
         td1.appendChild(isOnlyAdultsCheckbox);
 
-        let td2 = tr.insertCell(1);        
+        let td2 = tr.insertCell(1);
         let textNode = document.createTextNode(item.BookName);
         td2.appendChild(textNode);
 
@@ -126,3 +154,8 @@ function _displayItems(data) {
 
     list = data;
 }
+
+// Load items on page load
+document.addEventListener('DOMContentLoaded', () => {
+    getItems();
+});

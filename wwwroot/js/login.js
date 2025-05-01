@@ -1,11 +1,8 @@
  submitLogin = async (event) => {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Get the name and password from the form
+    event.preventDefault();
     const name = document.getElementById("name").value;
     const password = document.getElementById("password").value;
 
-    // Create the Author object
     const author = {
         Id: 0,
         Name: name,
@@ -16,7 +13,6 @@
     };
 
     try {
-        // Send the POST request to the server
         const response = await fetch('/login', {
             method: 'POST',
             headers: {
@@ -25,13 +21,14 @@
             body: JSON.stringify(author),
         });
 
-        // Handle the response
         if (response.ok) {
             const result = await response.text();
-            window.location.href = "/"; // Redirect to the home page on success
+            sessionStorage.setItem("token", result);
+            window.location.href = "/";
         } else {
             const error = await response.text();
-            alert("Login failed: " + error);
+            //throw new Error(error);
+            console.log(error);            
         }
     } catch (error) {
         console.error("Error during login:", error);

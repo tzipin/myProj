@@ -1,16 +1,13 @@
 using System.Security.Claims;
-using Microsoft.AspNetCore.Mvc;
 using myProj.Models;
 
 
 namespace myProj.Services;
-
 public class AuthorService : GeneryService<Author>
 {
-    private BookService bookService;
-    public AuthorService(IHostEnvironment env, BookService bookService) : base(env, "Author.json")
+    public AuthorService(IHostEnvironment env) : base(env, "Author.json")
     {
-        this.bookService = bookService;
+        
     }
     public override int Insert(Author newAuthor)
     {
@@ -33,18 +30,39 @@ public class AuthorService : GeneryService<Author>
         saveToFile();
         return true;
     }
-    public List<Book> booksOfAuthor(int authorId)
-    {
-        List<Book> books =  bookService.Get();
-        books = books.FindAll(b => b.AuthorId == authorId);
-        return books;
-    }
+    
 
-    public int GetAuthorByNameAndPassword(String name, String password)
+    public int GetAuthorByNameAndPassword(string name, string password)
     {
         Author author = Get().Find(a => a.Name == name && a.Password == password);
         if(author == null)
             return -1;
         return author.Id;
+    }
+
+    public string Login(Author author)
+    {
+        int id = GetAuthorByNameAndPassword(author.Name, author.Password);
+        if(id == -1)
+            return null;
+        string type, level;
+        if(author.Name == "Tzipi" || author.Password == "t1234"){
+            type = "Librarian";
+            level = "2";
+        }            
+        else
+        {
+            type = "Author";
+            level = "1";
+        }
+        var claims = new List<Claim>()
+        {
+            new Claim("type", type),
+            new Claim("Level", level),
+            new Claim("Id", id.ToString()),
+        } ;  
+        var token = TokenServise.GetToken(claims);
+        string stringToken = TokenServise.WriteToken(token);
+        return stringToken;     
     }
 }

@@ -63,7 +63,6 @@ builder.Services.AddControllersWithViews();
         }
         });
     });
-    builder.Services.AddHttpClient<TokenServise>();
     builder.Services.AddServices();
     // builder.Services.AddScoped<AuthorService>(); // Register AuthorService
     // builder.Services.AddScoped<BookService>(); 

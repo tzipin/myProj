@@ -7,9 +7,24 @@ namespace myProj.Services;
 
 public class BookService : GeneryService<Book>
 {
-    public BookService(IHostEnvironment env) : base(env, "Book.json")
+    private ICurrentAuthor currentAuthor;
+    //private static List<Book> list = new List<Book>();
+    public BookService(IHostEnvironment env, ICurrentAuthor currentAuthor) : base(env, "Book.json")
     {
-        
+        this.currentAuthor = currentAuthor;
+    }
+    public List<Book> GetBooks(string token)
+    {
+        if(currentAuthor.MakeCurrentAuthor(token) == null)
+            return null;
+        if(currentAuthor.currentAuthor.Level == 1)
+            return Get();
+        else
+            return list.FindAll(b => b.AuthorId == currentAuthor.currentAuthor.Id);;
+    }
+    public override Book GetOne(int id)
+    {
+        return list.Find(b => b.Id == id);
     }
     public override int Insert(Book newBook)
     {
@@ -32,4 +47,12 @@ public class BookService : GeneryService<Book>
         saveToFile();
         return true;
     }
+
+    // public static List<Book> booksOfAuthor(int authorId)
+    // {
+    //     System.Console.WriteLine(list.Count());
+    //     List<Book> books = list.FindAll(b => b.AuthorId == authorId);
+    //     System.Console.WriteLine(books.Count());
+    //     return books;
+    // }
 }

@@ -9,18 +9,14 @@ namespace myProj.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-
 public class AuthorController : ControllerBase
 {
-
     private AuthorService authorService;
     private IGeneryService<Book> bookService;
-    private TokenServise tokenServise;
-    public AuthorController(AuthorService authorService, IGeneryService<Book> bookService, TokenServise tokenServise)
+    public AuthorController(AuthorService authorService, IGeneryService<Book> bookService)
     {
         this.authorService = authorService;
         this.bookService = bookService;
-        this.tokenServise = tokenServise;
     }
 
     [HttpGet]
@@ -43,7 +39,7 @@ public class AuthorController : ControllerBase
 
     [HttpPost]
     [Authorize(Policy = "Librarian")]
-    public ActionResult<String> Joining(Author newAuthor)
+    public ActionResult<string> Joining(Author newAuthor)
     {
         var newId = authorService.Insert(newAuthor);
         if(newId == -1)
@@ -65,39 +61,20 @@ public class AuthorController : ControllerBase
     {
         if(authorService.GetOne(id) == null)
             return NotFound();
-        authorService.booksOfAuthor(id).ForEach(b => bookService.Delete(b.Id));
+        //BookService.booksOfAuthor(id).ForEach(b => bookService.Delete(b.Id));
         authorService.Delete(id);
         return Ok();
     }
 
     [HttpPost]
     [Route("/login")]
-    public ActionResult<String> Login([FromBody] Author author)
+    public ActionResult<string> Login([FromBody] Author author)
     {
-        int id = authorService.GetAuthorByNameAndPassword(author.Name, author.Password);
-        if(id == -1)
-            return "user not found";
-        string type, level;
-        if(author.Name == "Tzipi" || author.Password == "t1234"){
-            type = "Librarian";
-            level = "2";
-        }            
-        else
-        {
-            type = "Author";
-            level = "1";
-        }
-        var claims = new List<Claim>()
-        {
-            new Claim("type", type),
-            new Claim("Level", level),
-            new Claim("Id", id.ToString()),
-        } ;  
-        var token = TokenServise.GetToken(claims);
-        String stringToken = TokenServise.WriteToken(token);
-        HttpContext.Session.SetString("token", stringToken);
-        tokenServise.Token(stringToken);
-        return new OkObjectResult(TokenServise.WriteToken(token));        
+        string token = authorService.Login(author);
+        System.Console.WriteLine("token: " + token);
+        if(token == null)
+            return BadRequest("Wrong name or password");
+        return Ok(token);      
     }
 
 }
