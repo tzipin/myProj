@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using myProj.interfaces;
 using myProj.Models;
@@ -29,25 +30,29 @@ public abstract class GeneryService<T> : IGeneryService<T> where T : Genery
     {
         File.WriteAllText(filePath, JsonSerializer.Serialize(list));
     }
-    public virtual List<T> Get() => list;
+    public virtual List<T> Get(){ return list;}
     public virtual T GetOne(int id) => list.FirstOrDefault(b => b.Id == id);
     public abstract int Insert(T newItem);
-    public abstract bool Update(T newItem, int id);
-    public virtual bool Delete(int id)
+    public abstract int Update(T newItem, int id);
+    public virtual int Delete(int id)
     {
         var item = GetOne(id);
         if(item == null)
-            return false;
+            return -1;
         list.Remove(item);
         saveToFile();
-        return true;
+        return id;
     }
     public bool IsItemEmpty(T item)
     {
         return item == null;
     }  
 
-
+    public static List<Book> BooksOfAuthor(List<Book> list, int authorId)
+    {
+        List<Book> books = list.FindAll(b => b.AuthorId == authorId);
+        return books;
+    }
 }
 
 public static class GeneryUtilities
@@ -56,9 +61,11 @@ public static class GeneryUtilities
     {
         services.AddSingleton<IGeneryService<Book>, BookService>();
         services.AddSingleton<IGeneryService<Author>, AuthorService>();
+        services.AddSingleton<IBookService, BookService>();
+        services.AddSingleton<IAuthorService, AuthorService>();
         services.AddSingleton<AuthorService>();
         services.AddSingleton<BookService>();
-        services.AddSingleton<ICurrentAuthor,CurrentAuthor>();
-
+        services.AddSingleton<Author>();
+        services.AddSingleton<CurrentAuthor>();
     }
 }

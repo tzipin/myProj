@@ -9,12 +9,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\author.html",
+      "PackagePath": "staticwebassets\\html\\author.html"
+    },
+    {
       "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\login.html",
       "PackagePath": "staticwebassets\\html\\login.html"
     },
     {
       "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\author.js",
+      "PackagePath": "staticwebassets\\js\\author.js"
     },
     {
       "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\login.js",

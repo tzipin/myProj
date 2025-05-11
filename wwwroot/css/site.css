@@ -26,6 +26,7 @@ td {
  /* General body styling */
 body {
     font-family: Arial, sans-serif;
+    text-align: center;
     background-color: #d4f8d4; /* Light green background */
     margin: 0;
     padding: 0;
@@ -46,6 +47,7 @@ h2 {
 
 /* Table styling */
 table {
+    /* display: inline-block; */
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
@@ -70,12 +72,12 @@ tr:nth-child(even) {
 
 /* Form styling */
 form {
-    width: 80%;
-    margin: 20px auto;
+    display: inline-block;
+    background-color: #ffffff; /* White background for the form */
     padding: 20px;
-    background-color: #ffffff; /* White background for forms */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
 }
 
 label {
@@ -117,12 +119,12 @@ button:hover {
 }
 
 /* Edit form styling */
-#editForm {
+/* #editForm {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0fdf4; /* Very light green */
-    border: 1px solid #95d5b2; /* Light green border */
+    background-color: #f0fdf4; 
+    border: 1px solid #95d5b2; 
     border-radius: 8px;
     display: none;
-}
+} */

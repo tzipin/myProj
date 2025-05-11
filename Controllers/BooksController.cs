@@ -10,29 +10,26 @@ namespace myProj.Controllers;
 public class BookController : ControllerBase
 {
     private BookService bookService;
-    public BookController(BookService bookService)
-    {
-        this.bookService = bookService;
-    }
+    public BookController(BookService bookService) => this.bookService = bookService;
 
     [HttpGet]
     [Authorize(Policy = "Author")]
-    public ActionResult<IEnumerable<Book>> Get([FromHeader] string token)
+    public ActionResult<IEnumerable<Book>> Get()
     {
-        var books = bookService.GetBooks(token);
+        var books = bookService.GetBooks();
         if(books == null)
             return Unauthorized();
         if(books.Count == 0)
-            return NoContent(); 
+            return NoContent();
         return books;
     }
 
     [HttpGet("{id}")]
     public ActionResult<Book> Get(int id)
     {
-        var book = bookService.GetOne(id);
+        var book = bookService.GetBook(id);
         if(book == null)
-            return NotFound();
+            return Unauthorized();
         return book;
     }
 
@@ -49,16 +46,22 @@ public class BookController : ControllerBase
     [HttpPut("{id}")]
     public ActionResult Put(int id, Book newItem)
     {
-        if(!bookService.Update(newItem, id))
-            return BadRequest();        
-        return NoContent();
+        int req = bookService.Update(newItem, id);
+        if(req == -1)
+            return BadRequest();   
+        if(req == -2)
+            return Unauthorized();     
+        return Ok();
     }
 
     [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
-        if(!bookService.Delete(id))
+        int req = bookService.Delete(id);
+        if(req == -1)
             return NotFound();
+        if(req == -2)
+            return Unauthorized();
         return Ok();
     }
 }

@@ -10,7 +10,7 @@ public interface IGeneryService<T> where T : Genery
 
     int Insert(T newItem);
 
-    bool Update(T newItem, int id);
+    int Update(T newItem, int id);
 
-    bool Delete(int id);
+    int Delete(int id);
 }

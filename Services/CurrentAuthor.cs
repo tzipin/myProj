@@ -4,20 +4,28 @@ using myProj.Models;
 
 namespace myProj.Services;
 
-public class CurrentAuthor : ICurrentAuthor
-{
-    public Author currentAuthor { get; set; }
-    private IGeneryService<Author> authorService;
-    public CurrentAuthor(IGeneryService<Author> authorService)
+public class CurrentAuthor 
+{   
+    public static Author currentAuthor;
+    public CurrentAuthor(Author currentAuthor)
     {
-        this.authorService = authorService;
+        CurrentAuthor.currentAuthor = currentAuthor;
     }
-    public Author MakeCurrentAuthor(string token)
+
+    public static Author GetCurrentAuthor()
     {
-        int id = TokenServise.GetAuthorIdByToken(token);
-        if(id == -1 || id == null)
-            return null;
-        currentAuthor = authorService.GetOne(id);
         return currentAuthor;
-    }           
+    }
+    
+    
+    // public Author MakeCurrentAuthor(string token)
+    // {
+    //     int id = TokenServise.GetAuthorIdByToken(token);
+    //     if(id == -1 || id == null)
+    //         return null;
+    //     currentAuthor = AuthorService.Value.GetOne(id);
+    //     return currentAuthor;
+    // }
+    
+              
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Management</title>
     <link rel="stylesheet" href="/css/site.css">
+    <!-- <link rel="stylesheet" href="/css/login.css"> -->
 </head>
 <body>
     <h1>Book Management</h1>
@@ -20,11 +21,25 @@
         </thead>
         <tbody id="list"></tbody>
     </table>
-
+    <button onclick="getAuthor()">Author details</button>
+    <table id="authorTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Level</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="author"></tbody>
+    </table>
     <h2>Add a New Book</h2>
     <form onsubmit="addItem(); return false;">
         <label for="add-name">Book Name:</label>
         <input type="text" id="add-name" required>
+        <label for="edit-isOnlyAdults">Only Adults:</label>
+        <input type="checkbox" id="add-isOnlyAdults">
         <button type="submit">Add</button>
     </form>
 
@@ -42,5 +57,6 @@
     </div>
 
     <script src="/js/site.js"></script>
+    <script src="/js/author.js"></script>
 </body>
 </html>

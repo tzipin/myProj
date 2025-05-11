@@ -5,8 +5,8 @@
 
     const author = {
         Id: 0,
-        Name: name,
-        Password: password,
+        Name: encodeURIComponent(name),
+        Password: encodeURIComponent(password),
         Email: "",
         Address: "",
         Level: 0,
@@ -20,7 +20,8 @@
             },
             body: JSON.stringify(author),
         });
-
+        console.log(response.status);
+        
         if (response.ok) {
             const result = await response.text();
             sessionStorage.setItem("token", result);

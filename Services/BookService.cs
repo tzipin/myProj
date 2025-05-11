@@ -5,54 +5,79 @@ using myProj.Models;
 
 namespace myProj.Services;
 
-public class BookService : GeneryService<Book>
+public class BookService : GeneryService<Book>, IBookService
 {
-    private ICurrentAuthor currentAuthor;
-    //private static List<Book> list = new List<Book>();
-    public BookService(IHostEnvironment env, ICurrentAuthor currentAuthor) : base(env, "Book.json")
+    public BookService(IHostEnvironment env) : base(env, "Book.json")
     {
-        this.currentAuthor = currentAuthor;
+
     }
-    public List<Book> GetBooks(string token)
+    public List<Book> GetBooks()
     {
-        if(currentAuthor.MakeCurrentAuthor(token) == null)
+        if(CurrentAuthor.currentAuthor == null)
+        {
             return null;
-        if(currentAuthor.currentAuthor.Level == 1)
+        }
+        if(CurrentAuthor.currentAuthor.Level == 2)
+        {
             return Get();
+        }            
         else
-            return list.FindAll(b => b.AuthorId == currentAuthor.currentAuthor.Id);;
+            return BooksOfAuthor(CurrentAuthor.currentAuthor.Id);
     }
-    public override Book GetOne(int id)
+    public Book GetBook(int id)
     {
-        return list.Find(b => b.Id == id);
+        Book book = GetOne(id);
+        System.Console.WriteLine(book.BookName);
+        if(CurrentAuthor.currentAuthor.Level == 2)
+        {
+            return book;
+        }
+        if(CurrentAuthor.currentAuthor.Id == book.AuthorId)
+        {
+            return book;
+        }
+        return null;
     }
     public override int Insert(Book newBook)
     {
         if(IsItemEmpty(newBook))
             return -1;        
         newBook.Id = list.Count()+1;
+        if(CurrentAuthor.currentAuthor.Level == 1)
+            newBook.AuthorId = CurrentAuthor.currentAuthor.Id;
         list.Add(newBook);
         saveToFile();
         return newBook.Id;
     }
 
-    public override bool Update(Book newBook, int id)
+    public override int Update(Book newBook, int id)
     {
+        
+        if(CurrentAuthor.currentAuthor.Level == 1 && CurrentAuthor.currentAuthor.Id != newBook.AuthorId)
+            return -2;
         if(IsItemEmpty(newBook) || newBook.Id != id)
-            return false;
+            return -1;
         var index = list.FindIndex(b => b.Id == id);
         if(index == -1)
-            return false;
+            return -1;
         list[index] = newBook;
         saveToFile();
-        return true;
+        return 1;
     }
 
-    // public static List<Book> booksOfAuthor(int authorId)
-    // {
-    //     System.Console.WriteLine(list.Count());
-    //     List<Book> books = list.FindAll(b => b.AuthorId == authorId);
-    //     System.Console.WriteLine(books.Count());
-    //     return books;
-    // }
+    public int Delete(int id)
+    {
+        Book book = GetOne(id);
+        if(book == null)
+            return -1;
+        if(CurrentAuthor.currentAuthor.Level == 1 && CurrentAuthor.currentAuthor.Id != book.AuthorId)
+            return -2;
+        return base.Delete(id);
+    }
+
+    public List<Book> BooksOfAuthor(int authorId)
+    {
+        System.Console.WriteLine("books count"+Get().FindAll(b => b.AuthorId == authorId).Count);
+        return Get().FindAll(b => b.AuthorId == authorId);
+    } 
 }

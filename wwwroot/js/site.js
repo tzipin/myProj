@@ -13,7 +13,6 @@ function getItems() {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
-            'token': token,
         },
     })
         .then(response => {
@@ -32,11 +31,11 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
-
+    const addIsOnlyAdults = document.getElementById('add-isOnlyAdults')
     const item = {
         id: 0,
         BookName: addNameTextbox.value.trim(),
-        isOnlyAdults: false,
+        isOnlyAdults: addIsOnlyAdults.value,
     };
 
     fetch(uri, {
@@ -142,13 +141,14 @@ function _displayItems(data) {
         td1.appendChild(isOnlyAdultsCheckbox);
 
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.BookName);
+        console.log(item.bookName);
+        let textNode = document.createTextNode(item.bookName);
         td2.appendChild(textNode);
 
         let td3 = tr.insertCell(2);
         td3.appendChild(editButton);
 
-        let td4 = tr.insertCell(3);
+        let td4 = tr.insertCell(2);
         td4.appendChild(deleteButton);
     });
 
