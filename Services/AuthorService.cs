@@ -104,10 +104,6 @@ public class AuthorService : GeneryService<Author>, IAuthorService
             new Claim("Level", level),
             new Claim("Id", current.Id.ToString()),
         } ;  
-        foreach (var claim in claims)
-        {
-            // Console.WriteLine($"Claim Type: {claim.Type}, Claim Value: {claim.Value}");
-        }
 
         var token = TokenServise.GetToken(claims);
         CurrentAuthor.SetCurrentAuthor(current); 

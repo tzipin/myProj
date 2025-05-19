@@ -10,15 +10,13 @@ namespace myProj.Controllers;
 public class AuthorController : ControllerBase
 {
     private AuthorService authorService;
-    // private readonly CurrentAuthor currentAuthor;
     public AuthorController(AuthorService authorService, CurrentAuthor currentAuthor)
     {
         this.authorService = authorService;
-        // this.currentAuthor = currentAuthor;
     }
 
     [HttpGet]
-    // [Authorize(Policy = "Author")]
+    [Authorize(Policy = "Librarian")]
     public ActionResult<IEnumerable<Author>> Get()
     {       
         System.Console.WriteLine("start get authors");
@@ -28,7 +26,7 @@ public class AuthorController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    // [Authorize(Policy = "Author")]
+    [Authorize(Policy = "Author")]
     public ActionResult<Author> GetOne(int id)
     {
         System.Console.WriteLine("start get author");
@@ -53,6 +51,7 @@ public class AuthorController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(policy: "Author")]
     public ActionResult Put(int id,[FromBody] Author newAuthor)
     {
         System.Console.WriteLine("start put author");

@@ -81,6 +81,7 @@ function addItem() {
 const addAuthor = document.getElementById('add-author');
 
 const selected = () => {
+    addAuthor.innerHTML = '';
     authorList.forEach(item => {
         mySelectedAuthor(item);
     });
@@ -205,6 +206,10 @@ function updateItem() {
 
 function closeInput() {
     document.getElementById('editForm').style.display = 'none';
+}
+
+const closeeditAuthorForm = () => {
+    document.getElementById('editAuthorForm').style.display = 'none';
 }
 
 function _displayCount(itemCount) {

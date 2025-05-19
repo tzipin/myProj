@@ -1,6 +1,12 @@
 const url = '/author'
 let authorList = [];
 
+if(getType() == "Librarian")
+{
+    const joining = document.getElementById('joiningAuthorForm');
+    joining.style.display = 'block';
+}
+
 const Authors = () => {
     console.log(getType());    
      if(getType() === 'Author'){
@@ -50,9 +56,12 @@ const getAuthor = () => {
 }
 
 const displayAuthor = (data) => {
+    const tBody = document.getElementById('author');
+    tBody.innerHTML = '';
     data.forEach(item => {
         myAuthor(item);
     });
+    authorList = data;
 }
     
     const table = document.getElementById('authorTable');
@@ -69,7 +78,7 @@ const displayAuthor = (data) => {
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
+        deleteButton.setAttribute('onclick', `deleteAuthor(${item.id})`);
 
         let tr = tBody.insertRow();
 
@@ -96,5 +105,50 @@ const displayAuthor = (data) => {
 
         let td6 = tr.insertCell(4);
         td6.appendChild(deleteButton);
+    }
+
+    const deleteAuthor = (id) => {
+        fetch(`${url}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${getToken()}`,
+            },
+        })
+            .then(() => getItems())
+            .then(() => getAuthor())
+            .catch(error => console.error('Unable to delete author.', error));
+    }
+
+    const  addAuthorToService = async() => {
+        const newAuthor = {
+            id: 0,
+            name: document.getElementById('add-authorName').value,
+            email: document.getElementById('add-authorEmail').value,
+            address: document.getElementById('add-authorAddress').value,
+            password: document.getElementById('add-authorPassword').value,
+            level: document.getElementById('add-authorLevel').value
+        };
+    
+        try {
+            const response = await fetch('/api/joining', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + yourAccessToken // replace with actual token
+                },
+                body: JSON.stringify(newAuthor)
+            });
+    
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Successfully joined:', result);
+                // Handle successful login or redirect
+            } else {
+                console.error('Error joining:', response.status);
+                // Handle error response
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+        }
     }
     // window.location.href = "/html/author.html";    
