@@ -118,6 +118,28 @@ button:hover {
     color: #2d6a4f; /* Dark green */
 }
 
+/* Style the select dropdown */
+select {
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+    border: 1px solid #2e7d32; /* Dark green border */
+    /* border-radius: 5px;  */
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Style the options inside the dropdown */
+select option {
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+    padding: 5px;
+}
+/* Change the background color of options on hover */
+select option:hover {
+    background-color: #1b5e20; /* Dark green background on hover */
+    color: #ffffff; /* White text on hover */
+}
 /* Edit form styling */
 /* #editForm {
     width: 80%;

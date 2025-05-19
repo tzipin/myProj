@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using myProj.Models;
 using myProj.Services;
-using Microsoft.AspNetCore.Authorization;
 
 namespace myProj.Controllers;
 
@@ -10,32 +10,39 @@ namespace myProj.Controllers;
 public class AuthorController : ControllerBase
 {
     private AuthorService authorService;
-    public AuthorController(AuthorService authorService)
+    // private readonly CurrentAuthor currentAuthor;
+    public AuthorController(AuthorService authorService, CurrentAuthor currentAuthor)
     {
         this.authorService = authorService;
+        // this.currentAuthor = currentAuthor;
     }
 
     [HttpGet]
-    // [Authorize(Policy = "Librarian")]
+    // [Authorize(Policy = "Author")]
     public ActionResult<IEnumerable<Author>> Get()
-    {
+    {       
+        System.Console.WriteLine("start get authors");
+        if(CurrentAuthor.GetCurrentAuthor().Level == 1)
+            return Unauthorized(); 
         return authorService.Get();
     }
 
     [HttpGet("{id}")]
-    [Authorize(Policy = "Level2")]
+    // [Authorize(Policy = "Author")]
     public ActionResult<Author> GetOne(int id)
     {
+        System.Console.WriteLine("start get author");
         var author = authorService.GetAuthor(id);
         if(author == null)
             return NotFound();
-        if(author.Id == -1)
+        if(author.Id == -1){
             return Unauthorized();
+        }
         return author;
     }
 
     [HttpPost]
-    [Authorize(Policy = "Librarian")]
+    [Authorize(policy: "Librarian")]
     public ActionResult<string> Joining([FromBody] Author newAuthor)
     {
         System.Console.WriteLine("start joining");
@@ -48,18 +55,28 @@ public class AuthorController : ControllerBase
     [HttpPut("{id}")]
     public ActionResult Put(int id,[FromBody] Author newAuthor)
     {
-        if(CurrentAuthor.currentAuthor.Level == 1 && CurrentAuthor.currentAuthor.Id != id)
+        System.Console.WriteLine("start put author");
+        if(CurrentAuthor.GetCurrentAuthor().Level == 1 && CurrentAuthor.GetCurrentAuthor().Id != id)
+        {
+            System.Console.WriteLine("Unauthorized");
             return Unauthorized();
+        }
         int req = authorService.Update(newAuthor, id);
         if(req == -1)
-            return BadRequest();   
+        {
+            System.Console.WriteLine("BadRequest");
+            return BadRequest();
+        }   
         if(req == -2)
-            return Unauthorized();     
+        {
+            System.Console.WriteLine("unauthorized");
+            return Unauthorized();    
+        }
         return Ok();
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Policy = "Librarian")]
+    [Authorize(policy: "Librarian")]
     public ActionResult Delete(int id)
     {
         if(authorService.Delete(id) == -1)
@@ -73,7 +90,6 @@ public class AuthorController : ControllerBase
     {
         System.Console.WriteLine("start login");
         string token = authorService.Login(author);
-        System.Console.WriteLine(token);
         if(token == null)
             return BadRequest("Wrong name or password");
         return Ok(token);      

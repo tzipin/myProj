@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using myProj.Services;
+using Serilog;
 using myProj.middleware;
 using Microsoft.OpenApi.Models;
+using myProj.Middleware;
+using System.Security.Claims;
+// using myProj.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,9 +43,9 @@ builder.Services.AddControllersWithViews();
         cfg.AddPolicy("Author",
             policy => policy.RequireClaim("type", "Librarian", "Author"));
         cfg.AddPolicy("Level1",
-            policy => policy.RequireClaim("Level", "1"));
-        cfg.AddPolicy("Level2",
             policy => policy.RequireClaim("Level", "1", "2"));
+        cfg.AddPolicy("Level2",
+            policy => policy.RequireClaim("Level", "2"));
     });
 
     builder.Services.AddSwaggerGen(c =>
@@ -64,6 +68,16 @@ builder.Services.AddControllersWithViews();
         });
     });
     builder.Services.AddServices();
+
+    // Log.Logger = new LoggerConfiguration()
+    // .ReadFrom.Configuration(builder.Configuration) // Read settings from appsettings.json
+    // .Enrich.FromLogContext()
+    // .WriteTo.Console() // Log to console
+    // .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) // Log to file
+    // .CreateLogger();
+
+    // builder.Host.UseSerilog(); // Use Serilog for logging
+
     // builder.Services.AddScoped<AuthorService>(); // Register AuthorService
     // builder.Services.AddScoped<BookService>(); 
 
@@ -77,11 +91,14 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    // app.UseDeveloperExceptionPage();
 }
 
 //app.UseErrorMiddleware();
 
-//app.UseLogMiddleware();
+// app.UseLogMiddleware();
+
+// app.UseForceTokenMiddleware();
 
 app.UseDefaultFiles();
 

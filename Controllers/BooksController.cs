@@ -6,22 +6,30 @@ using myProj.Services;
 namespace myProj.Controllers;
 
 [ApiController]
+[Authorize(Policy = "Author")]
 [Route("[controller]")]
 public class BookController : ControllerBase
 {
     private BookService bookService;
-    public BookController(BookService bookService) => this.bookService = bookService;
+    // private readonly ILogger<BookController> logger;
+    public BookController(BookService bookService)//, ILogger<BookController> logger)
+    {
+        this.bookService = bookService;
+        // this.logger = logger;
+    } 
 
     [HttpGet]
-    [Authorize(Policy = "Author")]
     public ActionResult<IEnumerable<Book>> Get()
     {
+        System.Console.WriteLine("start get books");
+        // logger.LogInformation("Fetching all authors");
         var books = bookService.GetBooks();
         if(books == null)
             return Unauthorized();
         if(books.Count == 0)
             return NoContent();
-        return books;
+        // logger.LogInformation("Authors fetched successfully");
+        return Ok(books);
     }
 
     [HttpGet("{id}")]
@@ -36,6 +44,7 @@ public class BookController : ControllerBase
     [HttpPost]
     public ActionResult Post(Book newItem)
     {
+        System.Console.WriteLine("start post book");
         var newId = bookService.Insert(newItem);
         if(newId == -1){
             return BadRequest();

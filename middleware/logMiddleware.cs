@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using myProj.Services;
+using Serilog;
 
 namespace myProj.middleware;
 
@@ -14,11 +15,48 @@ public class LogMiddleware
 
     public async Task Invoke(HttpContext c)
     {
-       Console.WriteLine($"{c.Request.Path}.{c.Request.Method} start");
+         var logFolder = $"logs/{DateTime.Now:yyyy-MM}";
+        if (!Directory.Exists(logFolder))
+        {
+            Directory.CreateDirectory(logFolder);
+        }
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.File($"{logFolder}/log.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+System.Console.WriteLine($"method: {c.Request.Method}");
+        Log.Information($"method: {c.Request.Method}");
+        Log.Information($"controller: {c.Request.Path}");
+        Log.Information($"start time: {DateTime.Now}");
+        if (CurrentAuthor.GetCurrentAuthor() != null)
+        {
+            Log.Information($" client: {CurrentAuthor.GetCurrentAuthor().Name}");
+        }
+        else
+        {
+            Log.Information("client: Anonymous");
+        }
         var sw = new Stopwatch();
         sw.Start();
-        await next(c);
-        Console.WriteLine($"{c.Request.Path}.{c.Request.Method} end after {sw.ElapsedMilliseconds}ms");
+       try
+       {
+            await next(c);
+       }
+       catch (Exception ex)
+       {
+            Log.Error($"error: {ex.Message}");
+       }
+       finally
+       {
+            sw.Stop();
+            Log.Information($"end time: {DateTime.Now}");
+            Log.Information($"end after {sw.ElapsedMilliseconds}ms");
+            Log.Information($"status code: {c.Response.StatusCode}");
+            Log.Information("--------------------------------------------------");
+       }
+
+       
+        Log.CloseAndFlush();
     }
 }
 

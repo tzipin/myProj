@@ -24,7 +24,12 @@
         
         if (response.ok) {
             const result = await response.text();
-            sessionStorage.setItem("token", result);
+            const token = result.split(" ")[0];
+            const type = result.split(" ")[1];
+            const id = result.split(" ")[2];
+            sessionStorage.setItem("token", token);
+            sessionStorage.setItem("type", type);
+            sessionStorage.setItem("id", id);
             window.location.href = "/";
         } else {
             const error = await response.text();

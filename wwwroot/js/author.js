@@ -1,37 +1,71 @@
 const url = '/author'
+let authorList = [];
 
+const Authors = () => {
+    console.log(getType());    
+     if(getType() === 'Author'){
+        console.log(`${url}/${getId()}`);        
+        fetch(`${url}/${getId()}`,{
+            method: 'GET',
+            headers: {
+                'Authorizathion': `Bearer ${getToken()}`,
+            },
+        })
+        .then(response => {
+            if(!response.ok)
+                console.log(response.status);
+            else
+                    return response.json();           
+        })
+        .then(data => {
+            console.log(data);            
+            authorList = [data];   
+            mySelectedAuthor(data);         
+        })
+    }
+    else{
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorizathion': `Bearer ${getToken()}`,
+            },
+        })
+        .then(response => {
+            if(!response.ok)
+                console.log(response.status);
+            else
+                    return response.json();           
+        })
+        .then(data => {
+            console.log(data);
+            authorList = data;
+            selected();
+        })
+    }
+}
+Authors();
 const getAuthor = () => {
-    fetch(url,{
-        method: 'GET',
-        headers: {
-            'Authorizathion': `Bearer ${getToken()}`,
-        },
-    })
-    .then(response => {
-        if(!response.ok)
-            console.log(response.status);
-        else
-             return response.json();           
-    })
-    .then(data => {
-        displayAuthor(data);
-    })
+    Authors();
+    displayAuthor(authorList);
 }
 
 const displayAuthor = (data) => {
+    data.forEach(item => {
+        myAuthor(item);
+    });
+}
+    
     const table = document.getElementById('authorTable');
-    table.style.display = 'block';
     const tBody = document.getElementById('author');
     tBody.innerHTML = '';
-
-    // _displayCount(data.length);
-
     const button = document.createElement('button');
 
-    data.forEach(item => {
+    const myAuthor = (item) => {
+        table.style.display = 'block';
+
         let editButton = button.cloneNode(false);
         editButton.innerText = 'Edit';
-        editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
+        editButton.setAttribute('onclick', `displayAuthorEditForm(${item.id})`);
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
@@ -62,6 +96,5 @@ const displayAuthor = (data) => {
 
         let td6 = tr.insertCell(4);
         td6.appendChild(deleteButton);
-    });
+    }
     // window.location.href = "/html/author.html";    
-}

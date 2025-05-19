@@ -1,9 +1,23 @@
 const uri = '/book';
 let list = [];
+// const librarian = document.getElementsByClassName('librarian');
+// if(getType() === 'Librarian'){
+//     for (let i = 0; i < librarian.length; i++) {
+//         librarian[i].style.display = 'block';
+//     }
+// }
 
 getToken = () => {
     return sessionStorage.getItem("token");
-};
+}
+
+getType = () => {
+    return sessionStorage.getItem("type");
+}
+
+getId = () => {
+    return sessionStorage.getItem("id");
+}
 
 function getItems() {
     const token = getToken();
@@ -31,11 +45,13 @@ function getItems() {
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
-    const addIsOnlyAdults = document.getElementById('add-isOnlyAdults')
+    const addIsOnlyAdults = document.getElementById('add-isOnlyAdults');
+    const authorId = document.getElementById('add-author').value;
     const item = {
         id: 0,
         BookName: addNameTextbox.value.trim(),
-        isOnlyAdults: addIsOnlyAdults.value,
+        isOnlyAdults: addIsOnlyAdults.checked,
+        authorId: parseInt(authorId),
     };
 
     fetch(uri, {
@@ -60,6 +76,28 @@ function addItem() {
         .catch(error => console.error('Unable to add item.', error));
 }
 
+
+    
+const addAuthor = document.getElementById('add-author');
+
+const selected = () => {
+    authorList.forEach(item => {
+        mySelectedAuthor(item);
+    });
+    const addAuthorId = document.getElementById('add-author');
+    return parseInt(addAuthorId.value);
+}
+
+const mySelectedAuthor = (item) => {
+    let option = document.createElement('option');
+    option.value = item.id;
+    option.text = item.name;
+    addAuthor.appendChild(option);
+}
+
+// getAuthorsForSelect();
+// selected();
+
 function deleteItem(id) {
     fetch(`${uri}/${id}`, {
         method: 'DELETE',
@@ -72,20 +110,82 @@ function deleteItem(id) {
 }
 
 function displayEditForm(id) {
+    console.log(list);
+    
     const item = list.find(item => item.id === id);
 
+    document.getElementById('edit-authorId').value = item.authorId;
     document.getElementById('edit-name').value = item.BookName;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-isOnlyAdults').checked = item.isOnlyAdults;
     document.getElementById('editForm').style.display = 'block';
 }
 
+function displayAuthorEditForm(id) {
+    console.log(authorList);
+    
+    const item = authorList.find(item => item.id === id);
+    console.log(item);
+    document.getElementById('edit-AuthorId').value = item.id;
+    document.getElementById('edit-AuthorPassword').value = item.password;
+    document.getElementById('edit-AuthorName').value = item.name;
+    document.getElementById('edit-AuthorAdrress').value = item.address;
+    document.getElementById('edit-AuthorEmail').value = item.email;
+    const authorLevel = document.getElementById('edit-AuthorLevel');
+    if(getType() === 'Librarian'){
+        let option = document.createElement('option');
+        option.value = "1";
+        option.text = "Librarian";
+        authorLevel.appendChild(option);
+    }
+    document.getElementById('editAuthorForm').style.display = 'block';
+}
+
+const updateAuthor = () => {
+    const authorId = document.getElementById('edit-AuthorId').value;
+    const authorPassword = document.getElementById('edit-AuthorPassword').value;
+    const authorName = document.getElementById('edit-AuthorName').value;
+    const authorAddress = document.getElementById('edit-AuthorAdrress').value;
+    const authorEmail = document.getElementById('edit-AuthorEmail').value;
+    const authorLevel = document.getElementById('edit-AuthorLevel').value;
+
+    const item = {
+        id: parseInt(authorId),
+        password: authorPassword,
+        name: authorName,
+        address: authorAddress,
+        email: authorEmail,
+        level: parseInt(authorLevel),
+    };
+
+    fetch(`${url}/${authorId}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${getToken()}`,
+        },
+        body: JSON.stringify(item),
+    })
+        .then(() => getAuthor())
+        .catch(error => console.error('Unable to update item.', error));
+
+    closeFormEditAuthor();
+}
+
+const closeFormEditAuthor = () => {
+    document.getElementById('editAuthorForm').style.display = 'none';
+}
+
+
 function updateItem() {
     const itemId = document.getElementById('edit-id').value;
+    const authorId = document.getElementById('edit-authorId').value;
     const item = {
         id: parseInt(itemId, 10),
         isOnlyAdults: document.getElementById('edit-isOnlyAdults').checked,
         BookName: document.getElementById('edit-name').value.trim(),
+        authorId: parseInt(authorId),
     };
 
     fetch(`${uri}/${itemId}`, {

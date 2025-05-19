@@ -59,13 +59,13 @@ public static class GeneryUtilities
 {
     public static void AddServices(this IServiceCollection services)
     {
-        services.AddSingleton<IGeneryService<Book>, BookService>();
-        services.AddSingleton<IGeneryService<Author>, AuthorService>();
-        services.AddSingleton<IBookService, BookService>();
-        services.AddSingleton<IAuthorService, AuthorService>();
-        services.AddSingleton<AuthorService>();
-        services.AddSingleton<BookService>();
-        services.AddSingleton<Author>();
-        services.AddSingleton<CurrentAuthor>();
+        services.AddScoped<IGeneryService<Book>, BookService>();
+        services.AddScoped<IGeneryService<Author>, AuthorService>();
+        services.AddScoped<IBookService, BookService>();
+        services.AddScoped<IAuthorService, AuthorService>();
+        services.AddScoped<AuthorService>();
+        services.AddScoped<BookService>();
+        services.AddScoped<Author>();
+        services.AddScoped<CurrentAuthor>();
     }
 }
