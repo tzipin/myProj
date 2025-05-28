@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r+DqekWFxxqEQdfMmIyvg+iB2Wu3AriSGhcQxOOoe/k=",
+  "Hash": "MRneTTV8I0BlowxbFJqrmE8tndHsLKU3FqvKBY2rbtI=",
   "Source": "myProj",
   "BasePath": "_content/myProj",
   "Mode": "Default",
@@ -10,837 +10,163 @@
     {
       "Name": "myProj\\wwwroot",
       "Source": "myProj",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\login.css",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\login.css",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "RelativePath": "css/login.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "t24y4a555t",
-      "Integrity": "JcWkDmC8fDU1g+V7VD8GxYMl6trWMTSjtllhrz8byjM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\site.css",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\site.css",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "RelativePath": "css/site.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "eztcogynyo",
-      "Integrity": "NqXr5knbtpq7fFLH3t9HKc2OZvJsR6+sGfyoqbk+XJc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\author.html",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\author.html",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "html/author#[.{fingerprint}]?.html",
+      "RelativePath": "html/author.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "qiy0c46ffk",
-      "Integrity": "PhXi+sMANEWlWuSLfi3b3PfoTVBpAd5XIkIKz9Kb+iw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\author.html"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\login.html",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\login.html",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "html/login#[.{fingerprint}]?.html",
+      "RelativePath": "html/login.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0nwl4ylrzh",
-      "Integrity": "hAvcvkFGhoGjnYGMqBaCL9yWBm8zS+GbD/53EJB/U8c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\login.html"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\index.html",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\index.html",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "index#[.{fingerprint}]?.html",
+      "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q7ktaioxnq",
-      "Integrity": "lp3DoXVSTr5shko/Voq4FpufAUo1P9G13hJez/F95WQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\author.js",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\author.js",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "js/author#[.{fingerprint}]?.js",
+      "RelativePath": "js/author.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tlfsvsa97q",
-      "Integrity": "AY1+pdojm+p2sXSwlyQyAnmoDM0ALWkJO/fpl6d+Drg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\author.js"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\login.js",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\login.js",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "js/login#[.{fingerprint}]?.js",
+      "RelativePath": "js/login.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "oyshpfh6zs",
-      "Integrity": "4JEFKuAJ/mBLygiNQmESpzrE4X6WmBMy3S2dBFHyN+4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
-      "Identity": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\site.js",
+      "Identity": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\site.js",
       "SourceId": "myProj",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\",
+      "ContentRoot": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\",
       "BasePath": "_content/myProj",
-      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "RelativePath": "js/site.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tx1cj8h9z9",
-      "Integrity": "0fdrlPK9TQBYMOrgwnx1pYKpfVfrz/To2cv+4b84CVQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
-    }
-  ],
-  "Endpoints": [
-    {
-      "Route": "css/login.css",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1071"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JcWkDmC8fDU1g+V7VD8GxYMl6trWMTSjtllhrz8byjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-JcWkDmC8fDU1g+V7VD8GxYMl6trWMTSjtllhrz8byjM="
-        }
-      ]
-    },
-    {
-      "Route": "css/login.t24y4a555t.css",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\login.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1071"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JcWkDmC8fDU1g+V7VD8GxYMl6trWMTSjtllhrz8byjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "t24y4a555t"
-        },
-        {
-          "Name": "label",
-          "Value": "css/login.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JcWkDmC8fDU1g+V7VD8GxYMl6trWMTSjtllhrz8byjM="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3267"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NqXr5knbtpq7fFLH3t9HKc2OZvJsR6+sGfyoqbk+XJc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-NqXr5knbtpq7fFLH3t9HKc2OZvJsR6+sGfyoqbk+XJc="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.eztcogynyo.css",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3267"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NqXr5knbtpq7fFLH3t9HKc2OZvJsR6+sGfyoqbk+XJc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "eztcogynyo"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-NqXr5knbtpq7fFLH3t9HKc2OZvJsR6+sGfyoqbk+XJc="
-        }
-      ]
-    },
-    {
-      "Route": "html/author.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\author.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1609"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"PhXi+sMANEWlWuSLfi3b3PfoTVBpAd5XIkIKz9Kb+iw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-PhXi+sMANEWlWuSLfi3b3PfoTVBpAd5XIkIKz9Kb+iw="
-        }
-      ]
-    },
-    {
-      "Route": "html/author.qiy0c46ffk.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\author.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1609"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"PhXi+sMANEWlWuSLfi3b3PfoTVBpAd5XIkIKz9Kb+iw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "qiy0c46ffk"
-        },
-        {
-          "Name": "label",
-          "Value": "html/author.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-PhXi+sMANEWlWuSLfi3b3PfoTVBpAd5XIkIKz9Kb+iw="
-        }
-      ]
-    },
-    {
-      "Route": "html/login.0nwl4ylrzh.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\login.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "674"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hAvcvkFGhoGjnYGMqBaCL9yWBm8zS+GbD/53EJB/U8c=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0nwl4ylrzh"
-        },
-        {
-          "Name": "label",
-          "Value": "html/login.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-hAvcvkFGhoGjnYGMqBaCL9yWBm8zS+GbD/53EJB/U8c="
-        }
-      ]
-    },
-    {
-      "Route": "html/login.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\login.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "674"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hAvcvkFGhoGjnYGMqBaCL9yWBm8zS+GbD/53EJB/U8c=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hAvcvkFGhoGjnYGMqBaCL9yWBm8zS+GbD/53EJB/U8c="
-        }
-      ]
-    },
-    {
-      "Route": "index.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4407"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"lp3DoXVSTr5shko/Voq4FpufAUo1P9G13hJez/F95WQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:26:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-lp3DoXVSTr5shko/Voq4FpufAUo1P9G13hJez/F95WQ="
-        }
-      ]
-    },
-    {
-      "Route": "index.q7ktaioxnq.html",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4407"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"lp3DoXVSTr5shko/Voq4FpufAUo1P9G13hJez/F95WQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:26:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q7ktaioxnq"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-lp3DoXVSTr5shko/Voq4FpufAUo1P9G13hJez/F95WQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/author.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\author.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4798"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AY1+pdojm+p2sXSwlyQyAnmoDM0ALWkJO/fpl6d+Drg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:27:28 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AY1+pdojm+p2sXSwlyQyAnmoDM0ALWkJO/fpl6d+Drg="
-        }
-      ]
-    },
-    {
-      "Route": "js/author.tlfsvsa97q.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\author.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4798"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AY1+pdojm+p2sXSwlyQyAnmoDM0ALWkJO/fpl6d+Drg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 16:27:28 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tlfsvsa97q"
-        },
-        {
-          "Name": "label",
-          "Value": "js/author.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-AY1+pdojm+p2sXSwlyQyAnmoDM0ALWkJO/fpl6d+Drg="
-        }
-      ]
-    },
-    {
-      "Route": "js/login.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\login.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1393"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4JEFKuAJ/mBLygiNQmESpzrE4X6WmBMy3S2dBFHyN+4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4JEFKuAJ/mBLygiNQmESpzrE4X6WmBMy3S2dBFHyN+4="
-        }
-      ]
-    },
-    {
-      "Route": "js/login.oyshpfh6zs.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\login.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1393"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4JEFKuAJ/mBLygiNQmESpzrE4X6WmBMy3S2dBFHyN+4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 14:52:59 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "oyshpfh6zs"
-        },
-        {
-          "Name": "label",
-          "Value": "js/login.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4JEFKuAJ/mBLygiNQmESpzrE4X6WmBMy3S2dBFHyN+4="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\site.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8206"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0fdrlPK9TQBYMOrgwnx1pYKpfVfrz/To2cv+4b84CVQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 15:31:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fdrlPK9TQBYMOrgwnx1pYKpfVfrz/To2cv+4b84CVQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.tx1cj8h9z9.js",
-      "AssetFile": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\site.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8206"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0fdrlPK9TQBYMOrgwnx1pYKpfVfrz/To2cv+4b84CVQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 19 May 2025 15:31:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tx1cj8h9z9"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0fdrlPK9TQBYMOrgwnx1pYKpfVfrz/To2cv+4b84CVQ="
-        }
-      ]
     }
   ]
 }

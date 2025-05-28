@@ -21,14 +21,11 @@ public class BookController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Book>> Get()
     {
-        System.Console.WriteLine("start get books");
-        // logger.LogInformation("Fetching all authors");
         var books = bookService.GetBooks();
         if(books == null)
             return Unauthorized();
         if(books.Count == 0)
             return NoContent();
-        // logger.LogInformation("Authors fetched successfully");
         return Ok(books);
     }
 
@@ -44,7 +41,6 @@ public class BookController : ControllerBase
     [HttpPost]
     public ActionResult Post(Book newItem)
     {
-        System.Console.WriteLine("start post book");
         var newId = bookService.Insert(newItem);
         if(newId == -1){
             return BadRequest();

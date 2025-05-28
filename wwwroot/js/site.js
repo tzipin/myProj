@@ -116,7 +116,7 @@ function displayEditForm(id) {
     const item = list.find(item => item.id === id);
 
     document.getElementById('edit-authorId').value = item.authorId;
-    document.getElementById('edit-name').value = item.BookName;
+    document.getElementById('edit-name').value = item.bookName;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-isOnlyAdults').checked = item.isOnlyAdults;
     document.getElementById('editForm').style.display = 'block';

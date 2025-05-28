@@ -20,11 +20,15 @@ public class LogMiddleware
         {
             Directory.CreateDirectory(logFolder);
         }
-
+        var logFile = $"{logFolder}/{DateTime.Now:dd}.txt";
+        if (!File.Exists(logFile))
+        {
+            using (File.Create(logFile)) { }
+        }
         Log.Logger = new LoggerConfiguration()
-            .WriteTo.File($"{logFolder}/log.txt", rollingInterval: RollingInterval.Day)
+            .WriteTo.File(logFile, rollingInterval: RollingInterval.Infinite)
             .CreateLogger();
-System.Console.WriteLine($"method: {c.Request.Method}");
+// System.Console.WriteLine($"method: {c.Request.Method}");
         Log.Information($"method: {c.Request.Method}");
         Log.Information($"controller: {c.Request.Path}");
         Log.Information($"start time: {DateTime.Now}");

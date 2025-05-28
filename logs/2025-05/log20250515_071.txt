@@ -1,2 +1,0 @@
-2025-05-15 22:05:58.253 +03:00 [INF] method: GET
-2025-05-15 22:05:58.255 +03:00 [INF] controller: /css/site.css

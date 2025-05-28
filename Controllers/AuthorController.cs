@@ -19,7 +19,6 @@ public class AuthorController : ControllerBase
     [Authorize(Policy = "Librarian")]
     public ActionResult<IEnumerable<Author>> Get()
     {       
-        System.Console.WriteLine("start get authors");
         if(CurrentAuthor.GetCurrentAuthor().Level == 1)
             return Unauthorized(); 
         return authorService.Get();
@@ -29,7 +28,6 @@ public class AuthorController : ControllerBase
     [Authorize(Policy = "Author")]
     public ActionResult<Author> GetOne(int id)
     {
-        System.Console.WriteLine("start get author");
         var author = authorService.GetAuthor(id);
         if(author == null)
             return NotFound();
@@ -45,7 +43,8 @@ public class AuthorController : ControllerBase
     {
         System.Console.WriteLine("start joining");
         var newId = authorService.Insert(newAuthor);
-        if(newId == -1)
+        System.Console.WriteLine(newId);
+        if (newId == -1)
             return BadRequest();
         return Login(newAuthor);
     }

@@ -1,35 +1,35 @@
 {
   "Files": [
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\login.css",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\css\\site.css",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\author.html",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\author.html",
       "PackagePath": "staticwebassets\\html\\author.html"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\html\\login.html",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\html\\login.html",
       "PackagePath": "staticwebassets\\html\\login.html"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\index.html",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\author.js",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\author.js",
       "PackagePath": "staticwebassets\\js\\author.js"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\login.js",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
-      "Id": "Z:\\B\\נויגרשל ציפורה\\Core\\myProj\\wwwroot\\js\\site.js",
+      "Id": "C:\\ציפי לימודים\\Core\\myProj\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
@@ -43,10 +43,6 @@
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.myProj.props",
       "PackagePath": "buildTransitive\\myProj.props"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.myProj.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.myProj.Microsoft.AspNetCore.StaticWebAssets.props",

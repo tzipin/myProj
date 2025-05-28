@@ -127,28 +127,16 @@ const displayAuthor = (data) => {
             address: document.getElementById('add-authorAddress').value,
             password: document.getElementById('add-authorPassword').value,
             level: document.getElementById('add-authorLevel').value
-        };
+        };       
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`,
+            },
+            body: JSON.stringify(newAuthor)
+        })
+        .then(() => getAuthor())
+        .catch(error => console.error('Unable to add author.', error));    
+        }   
     
-        try {
-            const response = await fetch('/api/joining', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + yourAccessToken // replace with actual token
-                },
-                body: JSON.stringify(newAuthor)
-            });
-    
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Successfully joined:', result);
-                // Handle successful login or redirect
-            } else {
-                console.error('Error joining:', response.status);
-                // Handle error response
-            }
-        } catch (error) {
-            console.error('Network error:', error);
-        }
-    }
-    // window.location.href = "/html/author.html";    

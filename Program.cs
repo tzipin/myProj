@@ -94,9 +94,10 @@ if (app.Environment.IsDevelopment())
     // app.UseDeveloperExceptionPage();
 }
 
+
 //app.UseErrorMiddleware();
 
-// app.UseLogMiddleware();
+app.UseLogMiddleware();
 
 // app.UseForceTokenMiddleware();
 
